@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Manna</title>
+    <link rel="icon" type="image/png" href="static/logo2.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+  background-color:rgb(255, 255, 255); /* fallback color */
+  color: black;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+    }
+
+        .header {
+            background-color: transparent;
+            padding: 10px 15px;
+        }
+
+        .header-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            gap: 5px;
+            font-size: 3rem;
+            color: rgb(0, 170, 11);
+        }
+
+        .locations, .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            font-size: 80%;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .nav-links p {
+            margin: 0 10px 0 0;
+        }
+
+        .logo2 {
+            width: 70px;
+            z-index: 9998;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .header-header {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .logo2 {
+                width: 30px;
+                margin: 10px 10px;
+                left:10px;
+                top:15px;
+                position: fixed;
+            }
+            .header-header-header {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .locations {
+              font-size:10%;
+            }
+            .info-section {
+              align-items:center;
+              display: flex;
+              flex-wrap: nowrap;
+              overflow-x: auto;
+              gap: 20px;
+              padding: 40px 20px;
+              background-color: #fff;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-header {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .logo2 {
+                width: 30px;
+                margin: 10px 10px;
+                left:10px;
+                top:15px;
+                position: fixed;
+            }
+            .header-header-header {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            .locations {
+              font-size:10%;
+            }
+            .info-section {
+              align-items:center;
+              display: flex;
+              flex-wrap: nowrap;
+              overflow-x: auto;
+              gap: 20px;
+              padding: 40px 20px;
+              background-color: #fff;
+            }
+        }
+        #searchBar {
+            border-radius: 15px;
+            margin-bottom: 5px;
+            text-align: center;
+            border: 2px solid  #2162537e;
+            color: rgb(34, 170, 0);
+        }
+
+        .slider-container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+/* Each slide with background image */
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Active slide visibility */
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Dark overlay on each slide */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+/* Caption box - better styling */
+.caption-box {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 30px 40px;
+  background: rgba(0, 0, 0, 0.268);
+  border-radius: 15px;
+  max-width: 700px;
+  width: 90%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out;
+  color: #f0f0f0;
+  backdrop-filter: blur(5px);
+}
+
+/* Title */
+.caption-box h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: #00b500;
+}
+
+/* Description */
+.caption-box p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: #ccece9;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .caption-box {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .caption-box h2 {
+    font-size: 1.8rem;
+  }
+
+  .caption-box p {
+    font-size: 1rem;
+  }
+}
+    .info-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.info-background::before,
+.info-background::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,rgba(0, 255, 8, 0.2),rgba(9, 255, 0, 0.07), transparent);
+  animation: rotateWave 20s linear infinite;
+  z-index: 0;
+}
+
+.info-background::after {
+  background: radial-gradient(circle at center,rgba(12, 231, 0, 0.53), #ff006622, transparent);
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+
+@keyframes rotateWave {
+  0% { transform: rotate(0deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1.2); }
+}
+
+
+.info-section {
+  position: relative;
+  z-index: 1; /* Keep it above the animated background */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 40px 20px;
+  background-color: transparent; /* override white */
+  overflow-x: auto;
+}
+
+.info-card:hover {
+    transform: scale(1.03);
+}
+        @media (max-width: 600px) {
+            .info-section {
+              justify-content: left;
+              align-items:center;
+              display: flex;
+              flex-wrap: nowrap;
+              overflow-x: auto;
+              gap: 20px;
+              padding: 40px 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .info-section {
+              justify-content: left;
+              align-items:center;
+              display: flex;
+              flex-wrap: nowrap;
+              overflow-x: auto;
+              gap: 20px;
+              padding: 40px 20px;
+            }
+        }
+
+.info-card {
+  flex: 0 0 auto;
+  width: 600px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+/* Overlay */
+.info-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.info-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This forces crop and keeps aspect */
+  display: block;
+}
+
+.info-label {
+  z-index: 2;
+  position: absolute;
+  bottom: 10%;
+  left:0;
+  color: white;
+  padding: 6px 12px;
+  font-weight: 500;
+  font-size: 2rem;
+  font-family: 'Carmen Shadow', sans-serif;
+  font-family: 'Carmen', sans-serif;
+  color: rgb(245, 255, 242);
+  background-color:rgb(5, 156, 0); /* fallback color */
+}
+
+@media (max-width: 600px) {
+            .info-card {
+              flex: 0 0 auto;
+              width: 300px;
+              height: 200px;
+              position: relative;
+              overflow: hidden;
+              border-radius: 12px;
+              box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+              transition: transform 0.3s ease;
+            }
+        }
+        @media (max-width: 480px) {
+            .info-card {
+              flex: 0 0 auto;
+              width: 300px;
+              height: 200px;
+              position: relative;
+              overflow: hidden;
+              border-radius: 12px;
+              box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+              transition: transform 0.3s ease;
+            }
+        }
+
+ .social-icons {
+    background-color: black;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-icons a {
+  margin-top:15px;
+  color: rgb(34, 170, 0);
+  font-size: 32px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color:rgb(255, 255, 255);
+}
+
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #1a1a1a; /* Dark background */
+  color: #f2f2f2;
+}
+
+.feature-text {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.feature-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff9900;
+}
+
+.feature-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color:rgb(29, 29, 29);
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3bf441;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: #29cd2c;
+}
+
+.feature-image {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.feature-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .feature-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .feature-text p {
+    font-size: 1rem;
+  }
+
+  .feature-image {
+    max-width: 100%;
+  }
+}
+
+.feature-section2 {
+    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background-color: #083931;
+  color: #f2f2f2;
+}
+
+.feature-text2 {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.feature-text2 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff9900;
+}
+
+.feature-text2 p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color:rgb(29, 29, 29);
+}
+
+.menu-button2 {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3bf44e;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.menu-button2:hover {
+  background-color: #29cd42;
+}
+
+.feature-image2 {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.feature-image2 img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .feature-section2 {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .feature-text2 h2 {
+    font-size: 1.6rem;
+  }
+
+  .feature-text2 p {
+    font-size: 1rem;
+  }
+
+  .feature-image2 {
+    max-width: 100%;
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+.popup-content {
+  background: url('static/dhowbg.webp') no-repeat center center fixed;
+  background-size: cover;
+  background-color:rgb(255, 255, 255); /* fallback color */
+  color: black;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  height:100%;
+  text-align: center;
+  animation: slideUp 0.4s ease-in-out;
+  overflow-y: auto;
+  overflow-x: auto;
+  overflow: auto;
+}
+
+.close-popup {
+  margin-top: 10px;
+  padding: 10px 24px;
+  background-color: #195d52;
+  color: #a8fffe;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  float: left;
+}
+
+.close-popup:hover {
+  background-color: #2dcab3;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+/* Mobile-specific popup content alignment */
+@media (max-width: 768px) {
+  .popup-content {
+    color: black;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .popup-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .popup-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .close-popup {
+    float: left;
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  
+  .searchbar-007 {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .popup-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .popup-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .close-popup {
+    float: left;
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+
+  .searchbar-007 {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .popup-content {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .popup-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .popup-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .close-popup {
+    float: left;
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  .searchbar-007 {
+    display: none;
+  }
+}
+
+.hide-scrollbar {
+    overflow: hidden; /* Prevent scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+
+  .smoke {
+  position: absolute;
+  width: 50px;
+  height: 5%;
+  border-radius: 50%;
+  background: rgba(181, 181, 181, 0.053);
+  box-shadow: 0 0 10px rgba(157, 157, 157, 0.09);
+  pointer-events: none;
+  animation: fadeOut 0.4s linear forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+    @import url('https://fonts.cdnfonts.com/css/arabico-personal-use');
+    @import url('https://fonts.cdnfonts.com/css/redflick');
+    </style>
+    <link href="https://fonts.cdnfonts.com/css/arabico-personal-use" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/redflick" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.addEventListener('mousemove', (e) => {
+  const smoke = document.createElement('div');
+  smoke.classList.add('smoke');
+  smoke.style.left = `${e.clientX}px`;
+  smoke.style.top = `${e.clientY}px`;
+  document.body.appendChild(smoke);
+
+  setTimeout(() => {
+    smoke.remove();
+  }, 1000);
+});
+    </script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-header">
+            <span style="font-family: 'Arabico Personal Use', sans-serif; color:  #083931; font-size: 3.2rem;">AL-MANNA</span> supermarkets
+        </div>
+        <div class="header-header-header" style="justify-content: space-between; display:flex; flex-wrap: wrap; align-items: center;">
+            <div><a href="javascript:void(0);" onclick="goBack()" style="text-decoration:none;"><img class="logo2" src="/static/logo2.jpg" alt="Al Manna"></a></div>
+
+            <script>
+function goBack() {
+            if (document.referrer) {
+                window.history.back(); // Go back to the previous page
+            } else {
+                window.location.href = "/"; // If no history, go to home page
+            }
+        }
+
+  const body = document.body;
+  const popupOverlays = document.querySelectorAll('.popup-overlay');
+  const closeButtons = document.querySelectorAll('.close-popup');
+
+  document.querySelector('.wexford').onclick = () => {
+    document.getElementById('popup-menus').classList.add('active');
+    body.classList.add('hide-scrollbar');
+  };
+  
+  document.querySelector('.finglas').onclick = () => {
+    document.getElementById('popup-catering').classList.add('active');
+    body.classList.add('hide-scrollbar');
+  };
+  document.querySelector('.bray').onclick = () => {
+    document.getElementById('popup-about').classList.add('active');
+    body.classList.add('hide-scrollbar');
+  };
+  document.querySelector('.drogheda').onclick = () => {
+    document.getElementById('popup-contact').classList.add('active');
+    body.classList.add('hide-scrollbar');
+  };
+  document.querySelector('.stillorgan').onclick = () => {
+    document.getElementById('popup-location').classList.add('active');
+    body.classList.add('hide-scrollbar');
+  }; 
+
+  closeButtons.forEach(button => {
+    button.onclick = () => {
+      popupOverlays.forEach(popup => popup.classList.remove('active'));
+      body.classList.remove('hide-scrollbar');
+    };
+  });
+
+  // Also handle clicks outside the popup to close
+  popupOverlays.forEach(popup => {
+    popup.addEventListener('click', function(event) {
+      if (event.target === this) { // If the user clicks on the overlay itself
+        this.classList.remove('active');
+        body.classList.remove('hide-scrollbar');
+      }
+    });
+  });
+</script>
+
+
+            <!-- 🔍 SEARCH BAR -->
+            <div class="searchbar-007" style="margin-right:15px;">
+    <input 
+        type="text" 
+        id="searchBar" 
+        placeholder="Search..." 
+        style="padding:4px; font-size:12px; color:green; background-color:white;" 
+        onfocus="this.style.color='green'" 
+        oninput="this.style.color='green'" 
+        onblur="this.style.color='green'" 
+        onmouseover="this.style.color='green'"
+    >
+</div>
+        </div>
+        
+        <script>
+function unhighlightAll() {
+    document.querySelectorAll("mark.highlighted").forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+    });
+}
+
+function highlightText(query) {
+    unhighlightAll();
+    if (!query.trim()) return;
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    const textNodes = [];
+
+    while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (node.parentNode && !['SCRIPT', 'STYLE', 'TEXTAREA'].includes(node.parentNode.tagName)) {
+            textNodes.push(node);
+        }
+    }
+
+    const regex = new RegExp(query, 'gi'); // Case-insensitive, global match
+
+    textNodes.forEach(node => {
+        const matches = node.nodeValue.match(regex);
+        if (matches) {
+            const span = document.createElement('span');
+            span.innerHTML = node.nodeValue.replace(regex, match => {
+                return `<mark class="highlighted" style="background-color: yellow; color: black;">${match}</mark>`;
+            });
+            node.parentNode.replaceChild(span, node);
+        }
+    });
+}
+
+document.getElementById("searchBar").addEventListener("input", (e) => {
+    highlightText(e.target.value);
+});
+</script>
+
+    </div>
+    <div class="slider-container">
+  <div class="slide" style="background-image: url('https://i.pinimg.com/736x/c4/7d/a9/c47da90759cf4cbfe08504655ceb9a66.jpg');">
+    <div class="caption-box">
+      <h2>Weekly Super Savers</h2>
+      <p>Al Manna Supermarket brings you unbeatable weekly deals on fresh produce, pantry staples, and household essentials. Stock up and save big every week with our exclusive Super Saver offers!</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.pinimg.com/736x/0b/03/3d/0b033d9442a52c58b6a1ba7f9a8a4e29.jpg');">
+    <div class="caption-box">
+      <h2>Quality You Can Trust</h2>
+      <p>Every item on our shelves is carefully sourced and inspected. From farm-fresh vegetables to trusted grocery brands, Al Manna Supermarket ensures quality with every purchase.</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.pinimg.com/736x/7a/3e/4c/7a3e4cccfeb6c9acead0c4773c3d226c.jpg');">
+    <div class="caption-box">
+      <h2>Our Journey</h2>
+      <p>Established with a mission to serve the community, Al Manna Supermarket has grown into a trusted name across the region, offering convenience, variety, and value under one roof.</p>
+    </div>
+  </div>
+  <div class="slide" style="background-image: url('https://i.pinimg.com/736x/60/f5/24/60f52464894ea6bc3c8c0267a2875aec.jpg');">
+    <div class="caption-box">
+      <h2>Beyond Groceries</h2>
+      <p>Enjoy a full-service experience at Al Manna Supermarket — from fresh bakery items and halal meats to delivery and loyalty rewards. We go beyond groceries to serve your everyday needs.</p>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active');
+        if (idx === i) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    // Initial
+    showSlide(index);
+    setInterval(nextSlide, 5000); // Change every 5 seconds
+  </script>
+<div class="info-background">
+  <div class="info-section">
+    <div class="info-card">
+      <img src="https://i.pinimg.com/736x/0b/1d/55/0b1d55cab4253ea802c09a3a012c206e.jpg">
+      <div class="info-label">Knock Knock...</div>
+    </div>
+    <div class="info-card">
+      <img src="https://i.pinimg.com/736x/d6/dc/76/d6dc76d9ef79a16e0deb2a26c7323ff5.jpg" alt="Supermarkets">
+      <div class="info-label">Market is Here!</div>
+    </div>
+  </div>
+</div>
+
+<div class="feature-section" style="background-color: #083931;">
+  <div class="feature-text">
+    <h2>Discover global flavors and everyday essentials — all under one roof.</h2>
+    <p style="color: rgb(228, 228, 228); text-align:justify;">
+      Al Manna Supermarket brings together the finest local produce and international grocery items, offering a wide range of food, beverages, and household products to meet your every need.
+    </p>
+    <p style="color: rgb(228, 228, 228); text-align:justify;">
+      Every product on our shelves is carefully selected to ensure quality, freshness, and value. Whether you’re shopping for your family or planning a feast, Al Manna is your trusted neighborhood store.
+    </p>
+    <a class="menu-button">Browse Our Offers</a>
+  </div>
+  <div class="feature-image">
+    <img src="https://i.pinimg.com/736x/62/9b/e4/629be48c9538e5fb1c62e105ac86066c.jpg" alt="Al Manna Supermarket Products">
+  </div>
+</div>
+
+
+<style>
+          .offer-section {
+    padding: 40px 20px;
+    background-color:rgb(36, 36, 36);
+    display: flex;
+    justify-content: center;
+}
+
+.special-offer-header {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.bg-text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150%;
+  height: 150%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: scrollBG 30s linear infinite;
+  transform: rotate(-5deg);
+  font-size: 2rem;
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  color: rgb(0, 151, 25);
+}
+
+.bg-line {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.bg-line::before {
+  content: "";
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes scrollBG {
+  0% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(-200px) rotate(-5deg);
+  }
+}
+
+.offer-container {
+  position: relative;
+  z-index: 1;
+  padding: 1rem; /* spacing from bg text */
+}
+
+/* 🌐 MOBILE VIEW FIXES */
+@media (max-width: 768px) {
+  .bg-text-wrapper {
+    transform: rotate(-2deg);
+    font-size: 0.7rem;
+    gap: 20px;
+    animation-duration: 20s;
+  }
+
+  .offer-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.offer-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.offer-card {
+    position: relative;
+    width: 270px;
+    height: 400px;
+    overflow: hidden;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.69);
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: scale(1.03);
+}
+
+.offer-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.offer-caption {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background: #083931;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+        </style>
+		
+
+<div class="feature-section2">
+  <div class="feature-image2">
+    <img src="https://i.pinimg.com/736x/fe/8d/7d/fe8d7d757f72004713c93e8e734b4849.jpg" alt="Al Manna Bulk Delivery">
+  </div>
+  <div class="feature-text2">
+    <h2>Bulk Orders & Delivery</h2>
+    <p style="color: rgb(228, 228, 228); text-align:justify;">
+      Let us bring the essentials to your doorstep! Whether it's for family gatherings, festive occasions, or bulk needs for offices and events, Al Manna Supermarket offers fast and reliable delivery.
+      Choose from a wide range of groceries, household goods, and international favorites — all delivered fresh, packed with care, and ready when you need them.
+    </p>
+    <a class="menu-button2">Come! Explore our Options</a>
+  </div>
+</div>
+
+
+<div style="width:100%; justify-content: center; align-items:center; text-align:center;">
+  <h1 style="margin-top:20px;">Check-Out Our Socials!</h1>
+</div>
+
+  <div class="social-icons">
+        <a style="margin-left: 15px;" href="https://www.facebook.com/people/Al-Manna-Shopping-Center/100067863084124/?locale=cy_GB&_rdr" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/explore/locations/1457571861022691/al-manna-shopping-centre-misfah-oman/?locale=it_IT" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+
+  <a href="https://business.digitaloman.ai" style="text-decoration: none;">
+  <div style="background-color: rgb(0,0,0); color: rgba(34, 170, 0, 0.38); text-align:left; padding: 10px;">
+    <h4 style="margin: 0;">Powered By The Real AI Technologies</h4>
+  </div>
+  </a>
+
+</body>
+</html>
